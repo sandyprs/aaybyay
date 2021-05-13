@@ -1,4 +1,4 @@
-package com.rpaysolution.aaybyay
+package com.ssdimenssion.aaybyay
 
 import org.junit.Test
 

@@ -1,11 +1,11 @@
-package com.rpaysolution.aaybyay.fragment
+package com.ssdimenssion.aaybyay.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.rpaysolution.aaybyay.R
+import com.ssdimenssion.aaybyay.R
 
 
 class About : Fragment() {

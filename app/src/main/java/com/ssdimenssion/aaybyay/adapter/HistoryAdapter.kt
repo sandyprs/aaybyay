@@ -1,4 +1,4 @@
-package com.rpaysolution.aaybyay.adapter
+package com.ssdimenssion.aaybyay.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.rpaysolution.aaybyay.R
-import com.rpaysolution.aaybyay.database.Txn
-import com.rpaysolution.aaybyay.fragment.Home
+import com.ssdimenssion.aaybyay.R
+import com.ssdimenssion.aaybyay.database.Txn
 
 class HistoryAdapter(val context: Context,val itemdel:OnDeleteItem, val txns:List<Txn>):RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 

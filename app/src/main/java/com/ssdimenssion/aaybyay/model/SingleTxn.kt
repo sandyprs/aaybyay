@@ -1,4 +1,4 @@
-package com.rpaysolution.aaybyay.model
+package com.ssdimenssion.aaybyay.model
 
 data class SingleTxn(
     val date:String,

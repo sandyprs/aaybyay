@@ -1,13 +1,12 @@
-package com.rpaysolution.aaybyay.activity
+package com.ssdimenssion.aaybyay.activity
 
-import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.rpaysolution.aaybyay.R
-import com.rpaysolution.aaybyay.fragment.About
-import com.rpaysolution.aaybyay.fragment.History
-import com.rpaysolution.aaybyay.fragment.Home
+import com.ssdimenssion.aaybyay.R
+import com.ssdimenssion.aaybyay.fragment.About
+import com.ssdimenssion.aaybyay.fragment.History
+import com.ssdimenssion.aaybyay.fragment.Home
 import java.util.*
 
 class MainActivity : AppCompatActivity() {

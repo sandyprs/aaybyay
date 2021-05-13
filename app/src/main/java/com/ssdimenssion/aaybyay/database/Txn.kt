@@ -1,4 +1,4 @@
-package com.rpaysolution.aaybyay.database
+package com.ssdimenssion.aaybyay.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

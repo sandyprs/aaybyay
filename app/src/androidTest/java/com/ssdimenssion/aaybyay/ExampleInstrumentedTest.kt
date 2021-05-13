@@ -1,4 +1,4 @@
-package com.rpaysolution.aaybyay
+package com.ssdimenssion.aaybyay
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

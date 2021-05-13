@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.rpaysolution.aaybyay"
+        applicationId "com.ssdimenssion.aaybyay"
         minSdkVersion 22
         targetSdkVersion 30
         versionCode 1
