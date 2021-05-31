@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="AayByay v1.0"
+        android:text="AayByay v2.0"
         android:layout_gravity="center_horizontal"
         android:textStyle="bold"
         android:textColor="@color/teal_200"/>

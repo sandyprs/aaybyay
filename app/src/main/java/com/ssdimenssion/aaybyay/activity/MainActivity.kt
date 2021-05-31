@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
 
                 R.id.home -> {
+                    supportActionBar?.title = "AayByay"
                     supportFragmentManager.beginTransaction().replace(R.id.frame, Home()).commit()
                 }
 

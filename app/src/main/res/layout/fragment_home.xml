@@ -62,6 +62,7 @@
             android:id="@+id/add"
             android:layout_below="@+id/space"
             android:background="@drawable/rounded_corner"
+            android:textColor="@color/white"
             android:text="+ Add"/>
 
     </RelativeLayout>

@@ -3,7 +3,9 @@ package com.ssdimenssion.aaybyay.fragment
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
+import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +14,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.room.Room
 import com.ssdimenssion.aaybyay.R
 import com.ssdimenssion.aaybyay.database.DB
 import com.ssdimenssion.aaybyay.database.Txn
+import com.ssdimenssion.aaybyay.utils.DBAsyncTask
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -26,6 +33,8 @@ class Home : Fragment() {
     lateinit var amt:EditText
     lateinit var add:Button
     lateinit var drop:ImageView
+    lateinit var db: DB
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +47,13 @@ class Home : Fragment() {
         amt = view.findViewById(R.id.amt)
         add = view.findViewById(R.id.add)
         drop = view.findViewById(R.id.drop)
+
+        db = activity?.let { DB.geInstance(it.applicationContext) }!!
+
+
+        val sdf = SimpleDateFormat("dd-MM-yyyy")
+        val currentDate = sdf.format(Date()).toString()
+        date.setText(currentDate)
 
         drop.setOnClickListener {
             purpose.setText("Extra Expenses")
@@ -87,10 +103,12 @@ class Home : Fragment() {
                     purpose.text.toString(),
                     amt.text.toString().toDouble()
                 )
+                //insertInDB(txn)
 
-                DBAsyncTask(context!!,txn,1).execute().get()
-                Toast.makeText(activity,"Record added",Toast.LENGTH_SHORT).show()
-                date.text.clear()
+                if(DBAsyncTask.geInstance(db=db,data=txn,mode=1).execute().get().isEmpty()){
+                    Toast.makeText(activity,"one record added",Toast.LENGTH_SHORT).show()
+                }
+
                 purpose.text.clear()
                 amt.text.clear()
 
@@ -102,20 +120,37 @@ class Home : Fragment() {
         return view
     }
 
-    class DBAsyncTask(val context: Context,val data:Txn, val mode:Int):AsyncTask<Void,Void,Boolean>(){
-        val db= Room.databaseBuilder(context, DB::class.java,"txn-db").build()
-        override fun doInBackground(vararg params: Void?): Boolean {
-            if (mode == 1){
-                db.txnDao().insertAll(data)
-                db.close()
-                return true
-            }else{
-                db.txnDao().delete(data)
-                db.close()
-                return true
-            }
-        }
+//    private fun insertInDB(txn: Txn) {
+//        val thread = Thread {
+//            db.txnDao().insertAll(txn)
+//            activity?.runOnUiThread{
+//                Toast.makeText(activity,"new record added",Toast.LENGTH_LONG).show()
+//            }
+//
+//        }
+//        thread.start()
+//
+//    }
 
+//    class DBAsyncTask(val db:DB,val data:Txn, val mode:Int):AsyncTask<Void,Void,Boolean>(){
+//        //val db= Room.databaseBuilder(context, DB::class.java,"txn-db").build()
+//        override fun doInBackground(vararg params: Void?): Boolean {
+//            return if (mode == 1){
+//                db.txnDao().insertAll(data)
+//                db.close()
+//                true
+//            }else{
+//                db.txnDao().delete(data)
+//                db.close()
+//                true
+//            }
+//        }
+//
+//    }
+
+    override fun onDestroy() {
+        db.close()
+        super.onDestroy()
     }
 
 }

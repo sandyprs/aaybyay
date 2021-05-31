@@ -44,6 +44,5 @@ class HistoryAdapter(val context: Context,val itemdel:OnDeleteItem, val txns:Lis
 
     interface OnDeleteItem{
         fun deleteItem(data:Txn)
-
     }
 }

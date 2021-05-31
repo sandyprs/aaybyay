@@ -12,39 +12,69 @@
         android:layout_height="wrap_content"
         android:text="Date From:- " />
 
-    <EditText
-        android:id="@+id/dateFrom"
-        android:focusable="false"
-        android:inputType="none"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/dateFrom"
+            android:focusable="false"
+            android:inputType="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_cross"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/fromClear" />
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date To:- " />
 
-    <EditText
-        android:id="@+id/dateTo"
-        android:focusable="false"
-        android:inputType="none"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/dateTo"
+            android:focusable="false"
+            android:inputType="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_cross"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/toClear" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <Button
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/search"
-        android:layout_marginEnd="2dp"
-        android:backgroundTint="#E30B3E"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_corner"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/search"
+            android:layout_marginEnd="2dp"
+            android:backgroundTint="#E30B3E"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_corner" />
 
         <Button
             android:layout_width="0dp"
@@ -56,12 +86,13 @@
             android:id="@+id/searchAll"
             android:backgroundTint="#E30B3E"
             android:textColor="@color/white"
-            android:background="@drawable/rounded_corner"/>
+            android:background="@drawable/rounded_corner" />
 
     </LinearLayout>
+
     <Space
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+        android:layout_height="10dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -69,16 +100,32 @@
         android:text="Total Spend: "
         android:id="@+id/total"
         android:textStyle="bold"
-        android:textColor="#230A81"/>
+        android:textSize="18sp"
+        android:layout_marginHorizontal="5dp"
+        android:textColor="@color/teal_200" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+        android:layout_height="10dp" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/hist"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:text="No Record found"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:id="@+id/txt"/>
+
+    </RelativeLayout>
 
 </LinearLayout>
